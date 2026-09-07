@@ -12,6 +12,8 @@ Source:         %{pypi_source depyf}
 
 BuildArch:      noarch
 BuildRequires:  python3-devel
+# depyf's build backend (setuptools_scm) shells out to git to derive the version.
+BuildRequires:  git-core
 
 
 # Fill in the actual package description to submit package to Fedora
