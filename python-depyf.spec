@@ -52,7 +52,9 @@ Summary:        %{summary}
 
 
 %check
-%pyproject_check_import
+# depyf.optimization and depyf.explain* import torch, which is only present at
+# runtime in the consuming environment (e.g. vLLM), not in the buildroot.
+%pyproject_check_import -e depyf.optimization -e 'depyf.explain*'
 
 
 %files -n python3-depyf -f %{pyproject_files}
